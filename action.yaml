@@ -1,0 +1,23 @@
+name: 'Check Artifact Info'
+description: 'Check whether artifact with the given name was uploaded and return its information'
+author: 'Spektor Elizaveta'
+inputs:
+  name:
+    description: 'Name of the artifact to check'
+    required: true
+  github-token:
+    description: 'The GitHub token used to authenticate with the GitHub API.'
+    required: true
+  repository:
+    description: 'The repository owner and the repository name joined together by "/".
+      If not specified, this is the repository where artifact will be searched for.'
+    required: false
+    default: ${{ github.repository }}
+outputs:
+  found:
+    description: 'Artifact with the given name exists'
+  run-id:
+    description: 'The id of the workflow run where the given artifact was uploaded from.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
