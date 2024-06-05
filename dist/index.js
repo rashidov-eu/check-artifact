@@ -30938,8 +30938,8 @@ function run() {
         if (targetArtifact) {
             core.debug(`Found named artifact '${inputs.name}' (ID: ${targetArtifact.id}, Size: ${targetArtifact.size}, RunID: ${targetArtifact.workflowRunId})`);
         }
-        core.setOutput(constants_1.Outputs.Found, !!targetArtifact);
-        core.setOutput(constants_1.Outputs.RunId, targetArtifact === null || targetArtifact === void 0 ? void 0 : targetArtifact.workflowRunId);
+        core.setOutput(constants_1.Outputs.ArtifactId, (targetArtifact === null || targetArtifact === void 0 ? void 0 : targetArtifact.id) || '');
+        core.setOutput(constants_1.Outputs.RunId, (targetArtifact === null || targetArtifact === void 0 ? void 0 : targetArtifact.workflowRunId) || '');
         core.info('Checked artifact successfully');
     });
 }
@@ -30963,7 +30963,7 @@ var Inputs;
 })(Inputs || (exports.Inputs = Inputs = {}));
 var Outputs;
 (function (Outputs) {
-    Outputs["Found"] = "found";
+    Outputs["ArtifactId"] = "id";
     Outputs["RunId"] = "run-id";
 })(Outputs || (exports.Outputs = Outputs = {}));
 

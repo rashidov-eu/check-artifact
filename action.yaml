@@ -14,10 +14,11 @@ inputs:
     required: false
     default: ${{ github.repository }}
 outputs:
-  found:
-    description: 'Artifact with the given name exists'
+  id:
+    description: 'Id of the artifact found.
+      If not found, this will be empty string'
   run-id:
-    description: 'The id of the workflow run where the given artifact was uploaded from.'
+    description: 'Id of the workflow run where the given artifact was uploaded from.'
 runs:
   using: 'node20'
   main: 'dist/index.js'

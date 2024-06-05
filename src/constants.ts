@@ -5,6 +5,6 @@ export enum Inputs {
 }
 
 export enum Outputs {
-  Found = 'found',
+  ArtifactId = 'id',
   RunId = 'run-id'
 }

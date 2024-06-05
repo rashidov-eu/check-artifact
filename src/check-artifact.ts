@@ -112,8 +112,8 @@ async function run(): Promise<void> {
     )
   }
 
-  core.setOutput(Outputs.Found, !!targetArtifact)
-  core.setOutput(Outputs.RunId, targetArtifact?.workflowRunId)
+  core.setOutput(Outputs.ArtifactId, targetArtifact?.id || '')
+  core.setOutput(Outputs.RunId, targetArtifact?.workflowRunId || '')
   core.info('Checked artifact successfully')
 }
 
