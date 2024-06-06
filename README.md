@@ -36,16 +36,16 @@ Check whether artifact with the given name was uploaded and return its informati
 steps:
 - uses: rashidov-eu/check-artifact@v2
   with:
-   github-token: ${{ secrets.GITHUB_TOKEN }} # token with actions:read permissions on target repo
-   name: artifact-name
-   id: artifact
+    github-token: ${{ secrets.GITHUB_TOKEN }} # token with actions:read permissions on target repo
+    name: artifact-name
+  id: artifact
 
 - name: Download checked artifact if found
-if: ${{ steps.artifact.outputs.id != '' }}
-uses: actions/download-artifact@v4
-with:
-name: artifact-name
-path: path/to/artifacts
-github-token: ${{ secrets.GITHUB_TOKEN }}
-run-id: ${{ steps.artifact.outputs.run-id }}
+  if: ${{ steps.artifact.outputs.id != '' }}
+  uses: actions/download-artifact@v4
+  with:
+    name: artifact-name
+    path: path/to/artifacts
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+    run-id: ${{ steps.artifact.outputs.run-id }}
 ```
