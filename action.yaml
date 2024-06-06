@@ -3,7 +3,7 @@ description: 'Check whether artifact with the given name was uploaded and return
 author: 'Spektor Elizaveta'
 inputs:
   name:
-    description: 'Name of the artifact to check'
+    description: 'Name of the artifact to check.'
     required: true
   github-token:
     description: 'The GitHub token used to authenticate with the GitHub API.'
